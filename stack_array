@@ -1,0 +1,68 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define max 100
+void main()
+{
+    void insertion(int stack[],int item,int *top);
+    void deletion(int stack[],int *top);
+    void display(int stack[], int top);
+    int choice,stack[max],top=-1,item1;
+     while(1)
+    {
+          printf("enter your choice\n1. insertion\n2. deletion\n 3. display\n4. exit");
+    scanf("%d",&choice);
+        switch(choice)
+        {
+            
+            case 1:
+            printf("enter item for insertion");
+            scanf("%d",&item1);
+            insertion(stack,item1,&top);
+            break;
+            case 2:
+            deletion(stack,&top);
+            break;
+            case 3:
+            display(stack,top);
+            break;
+            default:
+            exit(0);
+        }
+    }
+}
+void insertion(int stack[],int item,int *top)
+{
+    if(*top>=max-1)
+    {
+        printf("overflow");
+    }
+    else
+    {
+        (*top)++;
+        stack[*top]=item;
+    }
+}
+void deletion(int stack[],int *top)
+{
+    int item2;
+    if(*top==-1)
+    {
+        printf("underflow");
+    }
+    else
+    {
+        item2=stack[*top];
+        (*top)--;
+        printf("%d is deleted",item2);
+    }
+  
+}
+  void display(int stack[], int top)
+  {
+      int i;
+      for(i=0;i<=top;i++)
+      {
+          printf("%d ",stack[i]);
+      }
+  }
+  
